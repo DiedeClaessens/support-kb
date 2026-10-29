@@ -12,9 +12,6 @@ tickets:
   hint:
     url: https://github.com/DiedeClaessens/support-kb/issues/2
     status: closed
-  timezone:
-    url: https://github.com/DiedeClaessens/support-kb/issues/3
-    status: closed
 ---
 
 <script>
@@ -25,15 +22,17 @@ tickets:
 
 [#4471](/kb/incidents/4471) is marked known: one bug, one fix queued. Its reports describe three
 problems. The subjects look alike, so the desk merged them on subject
-([decision 0001](/kb/decisions/0001-dedupe-by-subject)). Each problem got its own ticket.
+([decision 0001](/kb/decisions/0001-dedupe-by-subject)). The desk counts the one-day moves under `parser`, so
+two tickets cover them all.
 
-All three tickets are closed. The desk finished its work on #4471 on 29 October, and the merge
-that adds this line closes the tickets.
+Both tickets are closed on the desk's update of 5 October: `parser` fixed
+(`fix(dates): parse dd/mm for eu locales`), `hint` won't fix (the booking-v3 form is retired).
 
 <CauseTickets ticket={4471} filed={tickets} />
 
 <Callout kind="warn">
-The queued parser fix closes only the first row. The other two need their own fixes.
+The parser fix covers the one-day moves only in the count. Their bodies show no swap, so check
+them again if they keep coming in.
 </Callout>
 
 ## How to tell them apart
@@ -50,8 +49,7 @@ cause depends on the tenant, its booking form and the channel (`causes.ts`).
 - **`timezone`**: nothing swapped. The date lands one day early or late ("Tuesday 12 May,
   calendar says Monday 11 May"), an invite arrives before the booking, or one meeting falls on
   different days in Lisbon and Toronto. The desk already read these as one-day moves
-  (`desk-notes.json`). The desk counts them under `parser`, where they are filed, and they have
-  their own ticket.
+  (`desk-notes.json`). The desk counts them under `parser`, where they are filed.
 
 A few bodies name no dates ("sent my mother to the dentist on the wrong day"). They are counted
 by tenant and channel, like the rest.

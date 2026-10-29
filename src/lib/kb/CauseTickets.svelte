@@ -5,7 +5,7 @@
   import { tenantOf } from '#lib/kb/locales';
 
   // `filed`: cause → the ticket opened for it. `timezone` is the one-day moves (desk-notes.json),
-  // counted where they're filed and listed again on their own row.
+  // counted where they're filed, listed again on their own row under that ticket.
   let { ticket, filed }: { ticket: number; filed: Record<string, { url: string; status: string }> } = $props();
 
   const merged = $derived(uniqueById(reports as Report[]).filter((r) => r.mergedInto === ticket));
@@ -42,9 +42,9 @@
         <td>{readAs(g, notes.oneDayMove)}</td>
         <td colspan="2">one-day moves, counted under <code>{g.cause}</code></td>
         <td>
-          {#if filed.timezone}<a href={filed.timezone.url}>{link(filed.timezone.url)}</a>{:else}none yet{/if}
+          {#if filed[g.cause]}<a href={filed[g.cause].url}>{link(filed[g.cause].url)}</a>{:else}none yet{/if}
         </td>
-        <td>{filed.timezone?.status ?? 'open'}</td>
+        <td>{filed[g.cause]?.status ?? 'open'}</td>
       </tr>
     {/each}
   </tbody>
