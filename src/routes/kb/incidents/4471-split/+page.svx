@@ -41,7 +41,8 @@ cause depends on the tenant, its booking form and the channel (`causes.ts`).
 - **`timezone`**: nothing swapped. The date lands one day early or late ("Tuesday 12 May,
   calendar says Monday 11 May"), an invite arrives before the booking, or one meeting falls on
   different days in Lisbon and Toronto. The desk already read these as one-day moves
-  (`desk-notes.json`); they are now counted on their own.
+  (`desk-notes.json`). The desk counts them under `parser`, where they are filed, and they have
+  their own ticket.
 
 A few bodies name no dates ("sent my mother to the dentist on the wrong day"). They are counted
 by tenant and channel, like the rest.
