@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 is three problems'
 owner: support desk
-status: open
+status: closed
 reviewed: 2026-10-29
 signature: Diede Claessens, with Claude Opus 5.5
 tickets:
@@ -19,7 +19,10 @@ tickets:
 
 [#4471](/kb/incidents/4471) is marked known: one bug, one fix queued. Its reports describe three
 problems. The subjects look alike, so the desk merged them on subject
-([decision 0001](/kb/decisions/0001-dedupe-by-subject)). Each problem now has its own ticket.
+([decision 0001](/kb/decisions/0001-dedupe-by-subject)). Each problem got its own ticket.
+
+All three tickets are closed. The desk finished its work on #4471 on 29 October, and the tickets
+were closed after it.
 
 <CauseTickets ticket={4471} filed={tickets} />
 
