@@ -19,8 +19,8 @@ Since April, people have told us their bookings land on the wrong day: a month f
 first. The fix is queued.
 
 <Callout>
-Closed 5 October. Parser fixed, hint won't fix (booking-v3 form retired). Its reports were three
-problems, each with its own ticket: [#4471 is three problems](/kb/incidents/4471-split).
+Closed 5 October. Parser fixed, hint won't fix (booking-v3 form retired). Its reports were two
+problems, each with its own ticket: [#4471 is two problems](/kb/incidents/4471-split).
 </Callout>
 
 ## What was merged

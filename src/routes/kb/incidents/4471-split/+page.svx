@@ -1,8 +1,8 @@
 ---
 layout: runbook
-title: '#4471 is three problems'
+title: '#4471 is two problems'
 owner: support desk
-status: open
+status: closed
 reviewed: 2026-10-29
 signature: v1.eyJzdWIiOiIxMDI2IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyOTk2MDUsImV4cCI6MTc5MzM4NjAwNX0.BDER1CraZsMJ6BDAu1AlitA4yx6lcu71l1UdUmc8DM8
 tickets:
@@ -12,9 +12,6 @@ tickets:
   hint:
     url: https://github.com/DiedeClaessens/support-kb/issues/2
     status: closed · won't fix
-  timezone:
-    url: https://github.com/DiedeClaessens/support-kb/issues/3
-    status: open
 ---
 
 <script>
@@ -23,19 +20,21 @@ tickets:
   import Callout from '#lib/kb/Callout.svelte';
 </script>
 
-[#4471](/kb/incidents/4471) was marked known: one bug, one fix queued. Its reports describe three
+[#4471](/kb/incidents/4471) was marked known: one bug, one fix queued. Its reports describe two
 problems. The subjects look alike, so the desk merged them on subject
-([decision 0001](/kb/decisions/0001-dedupe-by-subject)). Each problem has its own ticket.
+([decision 0001](/kb/decisions/0001-dedupe-by-subject)). `causeOf` in `causes.ts` ties each
+report to a cause, and it has two: `parser` and `hint`. Each cause has its own ticket.
 
-The desk closed #4471 on 5 October. Its update ends two of the three: `parser` is fixed
+The desk closed #4471 on 5 October. Its update ends both: `parser` is fixed
 (`fix(dates): parse dd/mm for eu locales`), and `hint` won't be fixed, because the booking-v3
-form is retired. The update says nothing about `timezone`, so that ticket stays open.
+form is retired.
 
 <CauseTickets ticket={4471} filed={tickets} />
 
 <Callout kind="warn">
-The parser fix does not touch the one-day moves. Their bodies show no swap. If they keep coming
-in, they belong on the open ticket, not on #4471.
+Some `parser` reports read as a one-day move, not a day/month swap ("Tuesday 12 May, calendar
+says Monday 11 May"). `causeOf` still ties them to `parser`, so they are counted there, not on a
+ticket of their own. A ticket for them would re-claim reports that already belong to `parser`.
 </Callout>
 
 ## How to tell them apart
@@ -43,16 +42,12 @@ in, they belong on the open ticket, not on #4471.
 Read the body, not the subject or the intake tag. Intake guesses from the reporter's browser; the
 cause depends on the tenant, its booking form and the channel (`causes.ts`).
 
-- **`parser`**: day and month swapped ("7 April went out on 4 July"). The shared parser reads
-  every date month first, and every tenant on file writes the day first. Comes in by app, email,
-  or a `booking-v2` form.
+- **`parser`**: the shared parser reads every date month first, and every tenant on file writes
+  the day first, so the day and month swap ("7 April went out on 4 July"). Comes in by app, email,
+  or a `booking-v2` form. The one-day moves sit here too: `causeOf` ties them to `parser`.
 - **`hint`**: the same swap, but only through the booking form of a `booking-v3` tenant. That
   form prints `MM/DD/YYYY` under its date field, people type what it says, and the form then
   reads the date day first. Fixing the parser did not change the hint; retiring the form did.
-- **`timezone`**: nothing swapped. The date lands one day early or late ("Tuesday 12 May,
-  calendar says Monday 11 May"), an invite arrives before the booking, or one meeting falls on
-  different days in Lisbon and Toronto. The desk read these as one-day moves
-  (`desk-notes.json`) and filed them under `parser`; here they are counted on their own.
 
 A few bodies name no dates ("sent my mother to the dentist on the wrong day"). They are counted
 by tenant and channel, like the rest.
