@@ -6,12 +6,12 @@
 
   // `filed`: cause → the ticket opened for it. `timezone` is the one-day moves (desk-notes.json),
   // counted where they're filed and listed again on their own row.
-  let { ticket, filed }: { ticket: number; filed: Record<string, string> } = $props();
+  let { ticket, filed }: { ticket: number; filed: Record<string, { url: string; status: string }> } = $props();
 
   const merged = $derived(uniqueById(reports as Report[]).filter((r) => r.mergedInto === ticket));
   const groups = $derived(groupByCause(merged, tenantOf));
   const moved = $derived(groups.filter((g) => readAs(g, notes.oneDayMove)));
-  const link = (url: string | undefined) => url?.replace(/^.*\/issues\//, '#');
+  const link = (url: string) => url.replace(/^.*\/issues\//, '#');
 </script>
 
 <p class="sum">
@@ -21,7 +21,7 @@
 
 <table>
   <thead>
-    <tr><th>cause</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr>
+    <tr><th>cause</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>status</th></tr>
   </thead>
   <tbody>
     {#each groups as g (g.cause)}
@@ -31,8 +31,9 @@
         <td>{g.tenants}</td>
         <td>{g.firstSeen} → {g.lastSeen}</td>
         <td>
-          {#if filed[g.cause]}<a href={filed[g.cause]}>{link(filed[g.cause])}</a>{:else}none yet{/if}
+          {#if filed[g.cause]}<a href={filed[g.cause].url}>{link(filed[g.cause].url)}</a>{:else}none yet{/if}
         </td>
+        <td>{filed[g.cause]?.status ?? 'open'}</td>
       </tr>
     {/each}
     {#each moved as g (g.cause)}
@@ -41,8 +42,9 @@
         <td>{readAs(g, notes.oneDayMove)}</td>
         <td colspan="2">one-day moves, counted under <code>{g.cause}</code></td>
         <td>
-          {#if filed.timezone}<a href={filed.timezone}>{link(filed.timezone)}</a>{:else}none yet{/if}
+          {#if filed.timezone}<a href={filed.timezone.url}>{link(filed.timezone.url)}</a>{:else}none yet{/if}
         </td>
+        <td>{filed.timezone?.status ?? 'open'}</td>
       </tr>
     {/each}
   </tbody>

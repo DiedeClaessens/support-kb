@@ -6,9 +6,15 @@ status: closed
 reviewed: 2026-10-29
 signature: Diede Claessens, with Claude Opus 5.5
 tickets:
-  parser: https://github.com/DiedeClaessens/support-kb/issues/4
-  hint: https://github.com/DiedeClaessens/support-kb/issues/2
-  timezone: https://github.com/DiedeClaessens/support-kb/issues/3
+  parser:
+    url: https://github.com/DiedeClaessens/support-kb/issues/4
+    status: closed
+  hint:
+    url: https://github.com/DiedeClaessens/support-kb/issues/2
+    status: closed
+  timezone:
+    url: https://github.com/DiedeClaessens/support-kb/issues/3
+    status: closed
 ---
 
 <script>
