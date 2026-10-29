@@ -20,7 +20,7 @@ first. The fix is queued.
 
 <Callout>
 Closed 5 October. Parser fixed, hint won't fix (booking-v3 form retired). Its reports were three
-problems in two tickets: [#4471 is three problems](/kb/incidents/4471-split).
+problems, each with its own ticket: [#4471 is three problems](/kb/incidents/4471-split).
 </Callout>
 
 ## What was merged
