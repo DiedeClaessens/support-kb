@@ -9,11 +9,11 @@
 		<link href="../../../_app/immutable/chunks/B2Ul7l_u.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/BCPXOG7W.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/Dh1V97Jm.js" rel="modulepreload">
-		<link href="../../../_app/immutable/entry/app.BA7r4qd3.js" rel="modulepreload">
+		<link href="../../../_app/immutable/entry/app.BLcJ-GKw.js" rel="modulepreload">
 		<link href="../../../_app/immutable/nodes/0.BurGglGN.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
-		<link href="../../../_app/immutable/nodes/5.DqazHdW3.js" rel="modulepreload">
-		<link href="../../../_app/immutable/chunks/kdnIKDzY.js" rel="modulepreload">
+		<link href="../../../_app/immutable/nodes/5.Bo_9hxAh.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/scnOo6bG.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/BTPwLomz.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/CVBzP17p.js" rel="modulepreload">
 		<link href="../../../_app/immutable/chunks/BIy4WKJS.js" rel="modulepreload">
@@ -33,7 +33,7 @@ aside.svelte-17bri61{border-left:4px solid var(--accent);background:var(--note-b
 problems. The subjects look alike, so the desk merged them on subject
 (<a href="/kb/decisions/0001-dedupe-by-subject">decision 0001</a>). Each problem has its own ticket.</p> <p>The desk closed #4471 on 5 October. Its update ends two of the three: <code>parser</code> is fixed
 (<code>fix(dates): parse dd/mm for eu locales</code>), and <code>hint</code> won't be fixed, because the booking-v3
-form is retired. The update says nothing about <code>timezone</code>, so that ticket stays open.</p> <p class="sum svelte-1n91i81"><strong>412</strong> reports in #4471 · <strong>3</strong> problems</p> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>how it ended</th></tr></thead><tbody><!--[--><tr><td><code>parser</code></td><td>374</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td><!--[0--><a href="https://github.com/DiedeClaessens/support-kb/issues/7">#7</a><!--]--></td><td>closed · fixed</td></tr><tr><td><code>hint</code></td><td>33</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td><!--[0--><a href="https://github.com/DiedeClaessens/support-kb/issues/2">#2</a><!--]--></td><td>closed · won't fix</td></tr><tr><td><code>timezone</code></td><td>5</td><td>5</td><td>one-day moves, no swap</td><td><!--[0--><a href="https://github.com/DiedeClaessens/support-kb/issues/6">#6</a><!--]--></td><td>open</td></tr><!--]--></tbody></table><!----> <aside class="warn svelte-17bri61"><!---->The parser fix does not touch the one-day moves. Their bodies show no swap. If they keep coming
+form is retired. The update says nothing about <code>timezone</code>, so that ticket stays open.</p> <p class="sum svelte-1n91i81"><strong>412</strong> reports in #4471 · <strong>3</strong> problems</p> <table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>how it ended</th></tr></thead><tbody><!--[--><tr><td><code>parser</code></td><td>374</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td><!--[0--><a href="https://github.com/DiedeClaessens/support-kb/issues/1">#1</a><!--]--></td><td>closed · fixed</td></tr><tr><td><code>hint</code></td><td>33</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td><!--[0--><a href="https://github.com/DiedeClaessens/support-kb/issues/2">#2</a><!--]--></td><td>closed · won't fix</td></tr><tr><td><code>timezone</code></td><td>5</td><td>5</td><td>one-day moves, no swap</td><td><!--[0--><a href="https://github.com/DiedeClaessens/support-kb/issues/3">#3</a><!--]--></td><td>open</td></tr><!--]--></tbody></table><!----> <aside class="warn svelte-17bri61"><!---->The parser fix does not touch the one-day moves. Their bodies show no swap. If they keep coming
 in, they belong on the open ticket, not on #4471.<!----></aside><!----> <h2>How to tell them apart</h2> <p>Read the body, not the subject or the intake tag. Intake guesses from the reporter's browser; the
 cause depends on the tenant, its booking form and the channel (<code>causes.ts</code>).</p> <ul><li><strong><code>parser</code></strong>: day and month swapped ("7 April went out on 4 July"). The shared parser reads
 every date month first, and every tenant on file writes the day first. Comes in by app, email,
@@ -47,16 +47,16 @@ by tenant and channel, like the rest.</p> <!--[0--><p class="stamp svelte-1280m4
 			
 			<script>
 				{
-					__sveltekit_dtb1do = {
+					__sveltekit_5wzpyq = {
 						base: new URL("../../..", location).pathname.slice(0, -1),
-						version: "1793300235301"
+						version: "1793301412439"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					import("../../../_app/immutable/entry/start.CH5w6lId.js").then(async (kit) => {
-						kit.init(__sveltekit_dtb1do);
-						const app = await import("../../../_app/immutable/entry/app.BA7r4qd3.js");
+						kit.init(__sveltekit_5wzpyq);
+						const app = await import("../../../_app/immutable/entry/app.BLcJ-GKw.js");
 						kit.start(app, element, {
 							node_ids: [0, 5],
 							data: [null,null],

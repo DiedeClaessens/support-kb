@@ -7,13 +7,13 @@ reviewed: 2026-10-29
 signature: v1.eyJzdWIiOiIxMDI2IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyOTk2MDUsImV4cCI6MTc5MzM4NjAwNX0.BDER1CraZsMJ6BDAu1AlitA4yx6lcu71l1UdUmc8DM8
 tickets:
   parser:
-    url: https://github.com/DiedeClaessens/support-kb/issues/7
+    url: https://github.com/DiedeClaessens/support-kb/issues/1
     status: closed · fixed
   hint:
     url: https://github.com/DiedeClaessens/support-kb/issues/2
     status: closed · won't fix
   timezone:
-    url: https://github.com/DiedeClaessens/support-kb/issues/6
+    url: https://github.com/DiedeClaessens/support-kb/issues/3
     status: open
 ---
 
