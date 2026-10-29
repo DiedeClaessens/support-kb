@@ -21,7 +21,7 @@ tickets:
 problems. The subjects look alike, so the desk merged them on subject
 ([decision 0001](/kb/decisions/0001-dedupe-by-subject)). Each problem got its own ticket.
 
-All three tickets are closed. The desk finished its work on #4471 on 29 October, and the commit
+All three tickets are closed. The desk finished its work on #4471 on 29 October, and the merge
 that adds this line closes the tickets.
 
 <CauseTickets ticket={4471} filed={tickets} />
