@@ -1,1 +1,0 @@
-export{n as component}from"../chunks/6Beq-q1m.js";

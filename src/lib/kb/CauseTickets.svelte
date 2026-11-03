@@ -4,8 +4,8 @@
   import { tenantOf } from '#lib/kb/locales';
 
   // `causeOf` (causes.ts) ties each report to a cause. It has two: parser and hint. That is the
-  // desk's own view. `filed`: cause → the ticket opened for it and how it ended.
-  let { ticket, filed }: { ticket: number; filed: Record<string, { url: string; status: string }> } = $props();
+  // desk's own view. `filed`: cause → the ticket opened for it.
+  let { ticket, filed }: { ticket: number; filed: Record<string, string> } = $props();
 
   const merged = $derived(uniqueById(reports as Report[]).filter((r) => r.mergedInto === ticket));
   const groups = $derived(groupByCause(merged, tenantOf).filter((g) => g.cause !== 'unplaced'));
@@ -19,7 +19,7 @@
 
 <table>
   <thead>
-    <tr><th>cause</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th><th>how it ended</th></tr>
+    <tr><th>cause</th><th>reports</th><th>tenants</th><th>seen</th><th>ticket</th></tr>
   </thead>
   <tbody>
     {#each groups as g (g.cause)}
@@ -28,8 +28,7 @@
         <td>{g.reports.length}</td>
         <td>{g.tenants}</td>
         <td>{g.firstSeen} → {g.lastSeen}</td>
-        <td>{#if filed[g.cause]}<a href={filed[g.cause].url}>{link(filed[g.cause].url)}</a>{:else}none{/if}</td>
-        <td>{filed[g.cause]?.status ?? 'open'}</td>
+        <td>{#if filed[g.cause]}<a href={filed[g.cause]}>{link(filed[g.cause])}</a>{:else}none{/if}</td>
       </tr>
     {/each}
   </tbody>

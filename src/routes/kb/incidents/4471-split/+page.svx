@@ -2,16 +2,12 @@
 layout: runbook
 title: '#4471 is two problems'
 owner: support desk
-status: closed
-reviewed: 2026-10-29
+status: open
+reviewed: 2026-11-03
 signature: v1.eyJzdWIiOiIxMDI2IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM2OTczMDIsImV4cCI6MTc5Mzc4MzcwMn0.Sgo2JazaA3o-o1aBTskxSne68J0DNzZ1M_ZilMnKts4
 tickets:
-  parser:
-    url: https://github.com/DiedeClaessens/support-kb/issues/1
-    status: closed · fixed
-  hint:
-    url: https://github.com/DiedeClaessens/support-kb/issues/2
-    status: closed · won't fix
+  parser: https://github.com/DiedeClaessens/support-kb/issues/1
+  hint: https://github.com/DiedeClaessens/support-kb/issues/2
 ---
 
 <script>
@@ -24,10 +20,6 @@ tickets:
 problems. The subjects look alike, so the desk merged them on subject
 ([decision 0001](/kb/decisions/0001-dedupe-by-subject)). `causeOf` in `causes.ts` ties each
 report to a cause, and it has two: `parser` and `hint`. Each cause has its own ticket.
-
-The desk closed #4471 on 5 October. Its update ends both: `parser` is fixed
-(`fix(dates): parse dd/mm for eu locales`), and `hint` won't be fixed, because the booking-v3
-form is retired.
 
 <CauseTickets ticket={4471} filed={tickets} />
 
@@ -47,7 +39,7 @@ cause depends on the tenant, its booking form and the channel (`causes.ts`).
   or a `booking-v2` form. The one-day moves sit here too: `causeOf` ties them to `parser`.
 - **`hint`**: the same swap, but only through the booking form of a `booking-v3` tenant. That
   form prints `MM/DD/YYYY` under its date field, people type what it says, and the form then
-  reads the date day first. Fixing the parser did not change the hint; retiring the form did.
+  reads the date day first. The fix queued for the parser does not change the hint.
 
 A few bodies name no dates ("sent my mother to the dentist on the wrong day"). They are counted
 by tenant and channel, like the rest.
