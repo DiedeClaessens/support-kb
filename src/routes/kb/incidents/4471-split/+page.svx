@@ -4,7 +4,7 @@ title: '#4471 is two problems'
 owner: support desk
 status: closed
 reviewed: 2026-10-29
-signature: v1.eyJzdWIiOiIxMDI2IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM2OTcyMTEsImV4cCI6MTc5Mzc4MzYxMX0.GeZT4-O4DG7eMEqnYCx6DkqENY38GeYGetenLyUcyaM
+signature: v1.eyJzdWIiOiIxMDI2IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM2OTczMDIsImV4cCI6MTc5Mzc4MzcwMn0.Sgo2JazaA3o-o1aBTskxSne68J0DNzZ1M_ZilMnKts4
 tickets:
   parser:
     url: https://github.com/DiedeClaessens/support-kb/issues/1
